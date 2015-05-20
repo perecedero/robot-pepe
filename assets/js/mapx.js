@@ -1,5 +1,8 @@
-var MapX = (function ($) {
+var mapx = (function ($, mpac) {
 
+	/**
+		Insert grid to canvas
+	 */
 	$('#canvas').drawImage({
 		layer: true,
 		name: 'map',
@@ -7,56 +10,40 @@ var MapX = (function ($) {
 		x: 0, y:0, fromCenter: false
 	});
 
-	var gearsmap = [];
+	/**
+		draw a simple gear on the grid
+	 */
+	drawGear = function (file, row, name) {
+		var b = mapc.sizes.block;
 
-	var llenar =  function () {
-		var i, j, b = size.block;
-		for (i=0; i < 6; i++) {
-			for (j=0; j < 15; j++) {
+		$('#canvas').drawImage({
+			layer: true,
+			name: name,
+			source: $('#gearx').get(0),
+			y: (file +1) * b , x: (row + 1) * b,
+		});
+	};
 
-				if ( Math.floor((Math.random() * 100) + 1) < 10  ) {
+	var fillGears =  function () {
+		var i, j,
+		files= mpac.sizes.files,
+		rows = mpac.sizes.rows;
 
-					gearsmap[(i * 15) + j] = 'gear' + i + j;
-
-					$('#canvas').drawImage({
-						layer: true,
-						name: 'gear' + i + j,
-						source: $('#gearx').get(0),
-						x: (j +1) * b , y: (i + 1) * b,
-
-
-					});
-
-
-				} else {
-					gearsmap[(i * 15) + j] = false;
+		for (i=0; i < files; i++) {
+			for (j=0; j < rows; j++) {
+				name = mpac.gearsmap((i *15) + j);
+				if ( name != 'false'){
+					drawGear(i, j, name);
 				}
 			}
 		}
-	}
-
-	var size = {
-		block: 64,
-		y:{ min:65, max: 430},
-		x:{ min:65, max: 1000},
 	};
 
-	llenar();
+	fillGears();
 
 	return {
-		size:  size,
-		gearsmap: function(x, y) {
 
-			if(typeof x === 'undefined') {
-				return gearsmap;
-			} else if(typeof y === 'undefined') {
-				return gearsmap[x];
-			} else {
-				gearsmap[x] = y
-			}
-		},
-		llenar: function () { llenar(); }
 	}
 
-})($);
+})($, mapc);
 
