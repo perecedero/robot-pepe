@@ -30,6 +30,8 @@ var mapc = (function ($) {
 	return {
 		sizes:  sizes,
 
+		populateGears: populateGearsmap,
+
 		gearsmap: function(x, y) {
 
 			if(typeof x === 'undefined') {

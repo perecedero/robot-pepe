@@ -52,7 +52,6 @@ var pepex = (function ($, pepe, mapc) {
 				rotate: d
 			}, 200, 'easeOutBounce').delayLayer('pepex', 200);
 		}
-
 	}
 
 })($, pepe, mapc);

@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>PepeX</title>
+	<title>Robot Pepe!</title>
 
     <!-- Bootstrap -->
+   	<link rel="stylesheet" href="assets/css/normalize.css" >
    	<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="assets/css/pepex.css" >
@@ -22,11 +23,15 @@
 
 <body>
 
-	<div class="container">
-		<div class="headline">
-			<h1>Aprendiendo a Programar con Pepe!</h1>
-			<p></p>
+	<div class="nav">
+		<div class="container">
+			<h1>Aprendiendo a programar con el robot Pepe!</h1>
+			<h4>Utiliza la consola, o carga una programa para controlar a el robot Pepe y ayudalo a juntar todos los engranajes!</h4>
 		</div>
+	</div>
+
+
+	<div class="container">
 		<img id="mapx" class="hidden" src="assets/img/grid.png">
 		<img id="pepex" class="hidden" src="assets/img/robot2.png">
 		<img id="wayx" class= "hidden" src="assets/img/way.png">
@@ -35,6 +40,18 @@
 			<canvas id="canvas" width="1024px" height="448px"> </canvas>
 		</div>
 
+		<hr>
+		<h3>Cargar programa</h3>
+
+		<div class = "row">
+			<div class="col-md-8">
+				<input type="file" class="form-control" id="commands">
+			</div>
+			<div class="col-md-4">
+				<a href="" class="btn btn-default" id="run">Ejecutar</a>
+				<a href="" class="btn btn-default" id="populate-and-run">Poner Engranajes y ejecutar</a>
+			</div>
+		</div>
 	</div>
 
 	<script src="assets/js/utils/jquery.js"></script>
@@ -46,6 +63,6 @@
 	<script src="assets/js/mapx.js"></script>
 	<script src="assets/js/pepe.js"></script>
 	<script src="assets/js/pepex.js"></script>
-	<script src="ordenes.js"></script>
+	<script src="assets/js/functions.js"></script>
 </body>
 </html>

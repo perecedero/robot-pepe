@@ -1,4 +1,3 @@
-body {padding-top: 60px;}
 .headline {text-align: center;}
 .hidden { display:none;}
 
@@ -9,3 +8,5 @@ body {padding-top: 60px;}
     display: block;
     width: 1024px;
 }
+
+#commands { display:inline; }

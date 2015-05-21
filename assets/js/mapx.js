@@ -1,6 +1,6 @@
 var mapx = (function ($, mpac) {
 
-	var drawGear, fillGears;
+	var drawGear, drawGears;
 
 	/**
 		Insert grid to canvas
@@ -26,7 +26,7 @@ var mapx = (function ($, mpac) {
 		});
 	};
 
-	fillGears =  function () {
+	drawGears =  function () {
 		var i, j,
 		files= mpac.sizes.files,
 		rows = mpac.sizes.rows;
@@ -41,9 +41,15 @@ var mapx = (function ($, mpac) {
 		}
 	};
 
-	fillGears();
+	drawGears();
 
 	return {
+
+		populateGears: function(){
+			mapc.populateGears();
+			drawGears();
+			pepex.ontop();
+		}
 
 	}
 
