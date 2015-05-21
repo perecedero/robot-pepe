@@ -1,5 +1,7 @@
 var mapx = (function ($, mpac) {
 
+	var drawGear, fillGears;
+
 	/**
 		Insert grid to canvas
 	 */
@@ -24,7 +26,7 @@ var mapx = (function ($, mpac) {
 		});
 	};
 
-	var fillGears =  function () {
+	fillGears =  function () {
 		var i, j,
 		files= mpac.sizes.files,
 		rows = mpac.sizes.rows;

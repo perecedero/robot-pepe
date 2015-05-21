@@ -1,6 +1,8 @@
 var mapc = (function ($) {
 
-	var sizes = {
+	var sizes, gearsmap, populateGearsmap;
+
+	sizes = {
 		block: 64,
 		y:{ min:65, max: 430},
 		x:{ min:65, max: 1000},
@@ -8,9 +10,9 @@ var mapc = (function ($) {
 		rows: 15
 	};
 
-	var gearsmap = [];
+	gearsmap = [];
 
-	var populateGearsmap =  function () {
+	populateGearsmap =  function () {
 		var i, j, b = sizes.block;
 		for (i=0; i < 6; i++) {
 			for (j=0; j < 15; j++) {

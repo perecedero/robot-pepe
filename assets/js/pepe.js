@@ -1,6 +1,7 @@
 var pepe = (function ($, mapc) {
 
 	var direction = 'oeste',
+
 	pos = {
 		x: mapc.sizes.x.min,
 		y: mapc.sizes.y.min
