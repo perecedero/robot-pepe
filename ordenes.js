@@ -1,23 +1,31 @@
-$(function(){
 
-	for (i=0; i < 6; i++) {
+	repetir( 6, function(i) {
+
 		pepe.mover(14);
 
-		if( i != 5 ) {
-			if(i%2 == 0) {
+		si (es_distinto( i, 5 ), function () {
+
+			si( es_par(i), function() {
 				pepe.girar('derecha');
 				pepe.mover(1);
 				pepe.girar('derecha');
-			} else {
+			});
+
+			si( es_impar(i), function() {
 				pepe.girar('izquierda');
 				pepe.mover(1);
 				pepe.girar('izquierda');
-			}
-		} else {
+			});
+
+		});
+
+		si ( es_igual(i,5), function () {
+
 			pepe.girar('derecha');
 			pepe.mover(5);
 			pepe.girar('derecha');
-		}
-	}
 
-});
+		});
+
+	});
+
