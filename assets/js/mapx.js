@@ -48,7 +48,6 @@ var mapx = (function ($, mpac) {
 		populateGears: function(){
 			mapc.populateGears();
 			drawGears();
-			pepex.ontop();
 		}
 
 	}

@@ -1,7 +1,7 @@
 $(function(){
 
 	$('#commands').change( function(event) {
-		var file = event.target.files[0],
+		var file = this.files[0],
 		reader = new FileReader();
 
 		reader.onload = function() {
@@ -11,7 +11,6 @@ $(function(){
 	});
 
 	$('#run').click( function() {
-		mapx.populateGears();
 		$('#commands').change(); return false;
 	});
 
