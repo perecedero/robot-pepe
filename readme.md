@@ -2,7 +2,7 @@
 
 Robot pepe es un proyecto hecho en html5 y javascript, con la finalidad de enseñar a programar a los chicos.
 
-(Visita esta pagina para usar el robot)[http://perecedero.github.io/robot-pepe]
+[Visita esta pagina para usar el robot](http://perecedero.github.io/robot-pepe)
 
 ===
 
