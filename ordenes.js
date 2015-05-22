@@ -2,7 +2,6 @@
 	repetir( 6, function(i) {
 
 		pepe.mover(14);
-
 		si (es_distinto( i, 5 ), function () {
 
 			si( es_par(i), function() {

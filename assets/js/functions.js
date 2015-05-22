@@ -1,11 +1,12 @@
 $(function(){
 
-	$('#commands').change( function(event) {
+	$('#commands').change( function() {
 		var file = this.files[0],
 		reader = new FileReader();
 
 		reader.onload = function() {
-			eval (reader.result)
+			txt =  reader.result.replace(/\n/g, '').replace(/\t/g, ' ').replace(/  /g, ' ');
+			validator.validate(txt);
 		};
 		reader.readAsText(file);
 	});
