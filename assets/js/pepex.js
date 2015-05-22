@@ -15,6 +15,7 @@ var pepex = (function ($, pepe, mapc) {
 			if (name != 'false'){
 				pepe.engranajes ++;
 				$('canvas').setLayer(name, {visible: false});
+				$('#gears-count').html(pepe.engranajes);
 			}
 		}
 	});

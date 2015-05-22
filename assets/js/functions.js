@@ -22,7 +22,6 @@ $(function(){
 
 });
 
-
 es_igual = function (x,y) {
 	return x == y;
 }
@@ -47,7 +46,7 @@ si = function(cond, f) {
 
 repetir = function (x, f) {
 	var i;
-	for(i=0; i < x; i++) {
+	for(i=1; i <= x; i++) {
 		f(i);
 	 }
 }

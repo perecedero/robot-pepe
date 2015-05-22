@@ -27,6 +27,7 @@
 		<div class="container">
 			<h1>Aprendiendo a programar con el robot Pepe!</h1>
 			<h4>Utiliza la consola, o carga una programa para controlar a el robot Pepe y ayudalo a juntar todos los engranajes!</h4>
+			<hr>
 		</div>
 	</div>
 
@@ -39,20 +40,208 @@
 		<div class="canvas-container">
 			<canvas id="canvas" width="1024px" height="448px"> </canvas>
 		</div>
+		<h3><img id="gearx"  src="assets/img/gear.png"> Engranajes juntados : <b id="gears-count">0</b></h3>
+
 
 		<hr>
-		<h3>Cargar programa</h3>
 
 		<div class = "row">
-			<div class="col-md-8">
-				<input type="file" class="form-control" id="commands">
+			<div class = "col-md-8">
+				<h3>Cargar programa</h3>
+				<div class = "row">
+					<div class="col-md-7">
+						<input type="file" class="form-control" id="commands">
+					</div>
+					<div class="col-md-5">
+						<a href="" class="btn btn-default" id="run">Ejecutar</a>
+						<a href="" class="btn btn-default" id="populate-and-run">Reiniciar y ejecutar</a>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-4">
-				<a href="" class="btn btn-default" id="run">Ejecutar</a>
-				<a href="" class="btn btn-default" id="populate-and-run">Poner Engranajes y ejecutar</a>
+				<h3>Ayuda / Funciones</h3>
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#info-pepe">Pepe</button>
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#info-generic">Matematicas</button>
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#info-flujo">Control de flujo</button>
+				<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+					Ejemplos !
+				</button>
 			</div>
 		</div>
+
+	<br><br>
+
+		<!-- Modal Pepe -->
+		<div id="info-pepe" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Funciones de Pepe</h4>
+			  </div>
+			  <div class="modal-body">
+				<b>pepe.mover( pasos )</b>
+				<p>Mueve el robot  tantos lugares como diga "<i>pasos</i>". Si Pepe calcula que se sale del mapa entonces no se moverá</p>
+				<p>"<i>pasos</i>" es un numero entero positivo. </p>
+<pre>
+	pepe.mover( <i>3</i> );
+</pre>
+				<hr>
+				<b>pepe.girar( direccion )</b>
+				<p>Gira a Pepe hacia el lado que diga "<i>direccion</i>".</p>
+				<p>"<i>direccion</i>" puede ser 'derecha' o 'izquierda'.</p>
+<pre>
+	pepe.girar( <i>'derecha'</i> );
+</pre>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
+		<!-- Modal Matematica -->
+		<div id="info-generic" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Funciones Matemáticas</h4>
+			  </div>
+			  <div class="modal-body">
+				<b>es_igual( x, y )</b>
+				<p>Retorna verdadero si "<i>x</i>" es igual a "<i>y</i>", y falso en caso contrario</p>
+				<p>"<i>x, y</i>" deben ser números enteros. </p>
+<pre>
+	es_igual( <i>3</i>,  <i>5</i> );
+	es_igual( <i>3</i>,  <i>pepe.engranajes</i> );
+</pre>
+				<hr>
+				<b>es_distinto( x, y )</b>
+				<p>Retorna verdadero si "<i>x</i>" es distinto a "<i>y</i>", y falso en caso contrario</p>
+				<p>"<i>x, y</i>" deben ser números enteros.</p>
+<pre>
+	es_distinto( <i>3</i>,  <i>5</i> );
+	es_distinto( <i>4</i>,  <i>pepe.pos.x</i> );
+</pre>
+				<hr>
+				<b>es_par( x )</b>
+				<p>Retorna verdadero si "<i>x</i>" es un numero par y falso en caso contrario</p>
+				<p>"<i>x</i>" debe ser un número entero.</p>
+<pre>
+	es_par( <i>3</i> );
+</pre>
+				<hr>
+				<b>es_impar( x )</b>
+				<p>Retorna verdadero si "<i>x</i>" un numero impar, y falso en caso contrario</p>
+				<p>"<i>x</i>" debe ser un número entero.</p>
+<pre>
+	es_impar( <i>3</i> );
+</pre>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
+		<!-- Modal Flujo -->
+		<div id="info-flujo" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Funciones de control de flujo </h4>
+			  </div>
+			  <div class="modal-body">
+				<b>si( condicion, funcion )</b>
+				<p>Ejecuta la funcion dada en "<i>funcion</i>" si y solo si "<i>condicion</i>"  es verdadera</p>
+				<p>"<i>condicion</i>" debe ser algo que retorne verdadero o falso. </p>
+				<p>"<i>funcion</i>" debe ser un bloque de código a ejecutar.</p>
+<pre>
+	<b>si(</b> <i style="color:#800080">es_igual(3,3)</i>, <i style="color:#28D865">function() {
+		pepe.mover(5);
+		pepe.girar('derecha');
+	}</i><b>);</b>
+</pre>
+				<hr>
+				<b>repetir( x, funcion ( i ) { })</b>
+				<p>Ejecuta la función dada en "<i>funcion</i>" tantas veces como indica "<i>x</i>" </p>
+				<p>"<i>x</i>" debe ser un entero positivo. </p>
+				<p>"<i>funcion</i>" debe ser un bloque de código a ejecutar.</p>
+				<p>"<i>i</i>" informa la repetición actual.</p>
+<pre>
+	<b>repetir(</b> <i style="color:#800080">4</i>, <i style="color:#28D865">function( i ) {
+		<small>//si esta es la <b>tercera</b> repetición i es igual a <b>3</b></small>
+		pepe.mover(5);
+		pepe.girar('derecha');
+	}</i><b>);</b>
+</pre>
+				<hr>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
+		<!-- collapse examples -->
+		<div class="collapse" id="collapseExample">
+			<div class="well">
+				<h4>Recorrer un cuadrado de 5x5 <a href="#" onclick="ejemplo5x5();">ejecutar</a></h4>
+<pre>
+		pepe.mover(5);
+		pepe.girar('derecha');
+		pepe.mover(5);
+		pepe.girar('derecha');
+		pepe.mover(5);
+		pepe.girar('derecha');
+		pepe.mover(5);
+		pepe.girar('derecha');
+</pre>
+				<br>
+				<h4>Recorrer un cuadrado de 5x5 mejorado <a href="#" onclick="ejemplo5x5mejorado();">ejecutar</a></h4>
+<pre>
+	repetir( 4, function() {
+		pepe.mover(5);
+		pepe.girar('derecha');
+	});
+</pre>
+				<br>
+				<h4>Recorrer un cuadrado de 14x5 <a href="#" onclick="ejemplo14x5();">ejecutar</a></h4>
+<pre>
+	repetir( 4, function( i ) {
+
+		si( es_impar( i ), function(){
+			pepe.mover(14);
+			pepe.girar('derecha');
+		});
+
+		si( es_par( i ), function(){
+			pepe.mover(5);
+			pepe.girar('derecha');
+		});
+
+	});
+</pre>
+			</div>
+		</div>
+
 	</div>
+
+	<br><br>
 
 	<script src="assets/js/utils/jquery.js"></script>
 	<script src="assets/js/utils/jquery-ui-effects.min.js"></script>
@@ -65,5 +254,6 @@
 	<script src="assets/js/pepex.js"></script>
 	<script src="assets/js/validator.js"></script>
 	<script src="assets/js/functions.js"></script>
+	<script src="assets/js/ejemplos.js"></script>
 </body>
 </html>

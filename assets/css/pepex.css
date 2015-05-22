@@ -10,3 +10,6 @@
 }
 
 #commands { display:inline; }
+
+.modal-body i {font-weight: bold; color:#05BAF5}
+.modal-body small { color:#BFBFBF}
